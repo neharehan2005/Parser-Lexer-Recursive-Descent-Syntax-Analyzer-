@@ -1,0 +1,26 @@
+# ---------- program with BOTH lexical and syntax errors ----------
+begin {
+  declare $a1 as number set to 10
+  # lexical: '$b' is an invalid identifier (must end with a digit)
+  # syntax : 'as' is missing
+  declare $b number
+  # lexical: '@' is not a valid character
+  show @ $a1
+  # syntax : 'to' or 'at' is missing after set
+  set $a1 5
+  # lexical: text literal is not closed
+  declare $c1 as text set to "hello
+  # lexical: 'foo' is an unknown word
+  foo $a1++
+  # syntax : the loop body has no update ($a1++ or $a1--)
+  repeat while $a1 < 20 {
+    show $a1
+  }
+  # syntax : ')' is missing
+  show ($a1 + 2
+  # syntax : the task has no return
+  task $f1($x1) {
+    show $x1
+  }
+}
+end .

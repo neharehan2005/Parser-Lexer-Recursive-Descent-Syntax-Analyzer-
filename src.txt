@@ -1,0 +1,25 @@
+# ---------- correct program: no lexical and no syntax errors ----------
+begin {
+  declare $a1 as number set to 10
+  declare $name1 as text set to "Sana #1"
+  declare $ok1 as truth set to true
+  declare $arr1 as number array of 3 set $arr1 to [1, 2, 3]
+
+  ask $a1 with "Enter a number: "
+  set $a1 to ($a1 + 5) * 2 - 4 / 2 % 3
+  set $arr1 at 0 to 99
+  show $arr1 at 1
+  show "big" if $a1 >= 10 && !($a1 > 100) || $ok1
+
+  repeat while $a1 > 0 {
+    show $a1
+    $a1--
+  }
+
+  task $add1($x1, $y1) {
+    declare $r1 as number set to $x1 + $y1
+    return $r1
+  }
+  $add1(2, 3)
+}
+end .
